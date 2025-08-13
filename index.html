@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="portfolio, infy, greg, rabindra" />
+    <meta name="author" content="Rabindra" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="sky" id="sky">
+      <span id="porty"><b>INFY.CV</b></span>
+      <div class="sentence">
+        <b>I am </b><span id="lastWord" class="last-word"></span>
+      </div>
+      <div class="button-container">
+        <button class="btn" id="Play" tabindex="1">Start</button>
+        <button class="btn2" id="i" tabindex="2">i</button>
+        <button class="btn" id="Blogs" tabindex="3">Blogs</button>
+      </div>
+      <div id="quote-container">
+        <span id="quote-text"></span>
+      </div>
+      <div id="dialog1">
+        <dialog id="main-dialog">
+          <header id="header">
+            <span id="about-me">ⓘ About me</span>
+              <button id="close-i-button">X</button>
+          </header>
+          <div id="content-dialog">
+            Hey there! I'm <b>Rabindra</b>(/<b>infy</b>/<b>greg</b>), and
+            welcome to my portfolio project – a passion that's been a whole lot
+            of fun (and a bit goofy, I'll admit!). <br /><br />
+            This entire site is a pure frontend showcase, crafted with nothing
+            but HTML, CSS, and JavaScript. Building this has been an absolute
+            blast and a massive learning curve. I've dived headfirst into new
+            concepts, wrestled with countless errors (seriously, so many
+            errors!), but every single one taught me something valuable. [fonts
+            took the most time xD]
+          </div>
+        </dialog>
+      </div>
+      <!--flappy bird-->
+      <div id="dialog2">
+        <dialog id="skills-dialog">
+          <header id="skills-header">
+            <span id="skills-title">📝My Tech Stack (.game)</span>
+            <button id="close-skills-button">X</button>
+          </header>
+          <div id="skills-content">
+            <canvas id="game-canvas"></canvas>
+          </div>
+        </dialog>
+      </div>
+      <div>
+        <dialog id="options" class="optional">
+          <header id="options-header">
+            <span id="options-title">⚙️Options</span>
+            <button id="close-options-button">X</button>
+          </header>
+          <div id="options-content">
+            <button id="dottxt" class="optionss"><u>.txt</u></button>
+            <button id="dotgame" class="optionss">.game</button>
+            <button id="dotcert" class="optionss">.cert</button>
+          </div>
+        </dialog>
+      </div>
+      <div>
+        <dialog id="text-dialog">
+          <header id="text-header">
+            <span id="text-title">📜My Tech Stack (.txt)</span>
+            <button id="close-text-button">X</button>
+          </header>
+          <div id="text-content">
+            <ul id="text-list">
+              <p id="txt-list">> HTML</p>
+              <p id="txt-list">> CSS</p>
+              <p id="txt-list">> JavaScript</p>
+              <p id="txt-list">> React</p>
+              <p id="txt-list">> Node.js</p>
+              <p id="txt-list">> (will update as I learn)...</p>
+            </ul>
+          </div>
+        </dialog>
+      </div>
+      <div>
+        <dialog id="cert-dialog">
+          <header id="cert-header">
+            <span id="cert-title">📜Certifications (.txt)</span>
+            <button id="close-cert-button">X</button>
+          </header>
+          <div id="cert-content">
+            <ul id="cert-list">
+              <p id="crt-list">> Deloitte Australia - Cyber Job Simulation</p>
+              <br />
+              <p id="crt-list">
+                > Deloitte Australia - Data Analytics Job Simulation
+              </p>
+              <br />
+              <p id="crt-list">
+                > Deloitte Australia - Technology Job Simulation
+              </p>
+            </ul>
+          </div>
+        </dialog>
+      </div>
+      <div>
+        <dialog open class="first-impression-dialog" id="FirstImpressionDialog">
+          <div class="first-impression-container">
+            <div class="image-container">
+              <div class="side-div in">In</div>
+              <img
+                class="first-impression-photo"
+                src="photos/for webby.png"
+                alt="First Impression"
+              >
+              <div class="side-div fy">fy</div>
+            </div>
+            <div class="paragraph-container">
+              <p class="paragraph">
+                my professional un-professional portfolio!<br> This
+                site is a fun yet functional showcase I’ve built using HTML,
+                CSS, and JavaScript — mixing creativity with code to give you a
+                glimpse of who I am and what I do. <br><br>
+               <ul>
+                  <p>[Start] – dive into my skills and certifications</p>
+                  <p>["i"] – a little about me</p>
+                  <p>[Blogs] – under construction(always)</p>
+                </ul>
+              </p>
+            </div>
+            <span class="ribbon-container" id="rbn">
+              <img
+                class="ribbon"
+                src="photos/ribbon.png"
+                alt="Ribbon"
+                id="rbbn">
+            </span>
+          </div>
+        </dialog>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
