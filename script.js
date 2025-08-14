@@ -509,13 +509,13 @@ document.addEventListener("mousemove", (e) => {
 const quotes = [
   "<how to center a div?>",
   "<error 404: failed to launch web>",
+  "<messy code>",
   "<failed countless times>",
   "<brave don't give up>",
   "<copium + life support>",
-  "<messy code>",
   "<why is it not working?>",
   "<lost while debugging>",
-  "<wow i don't recognsie my own code>"
+  "<wow i don't recognise my own code>"
 ];
 
 let index = 0;

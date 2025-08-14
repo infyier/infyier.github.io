@@ -1,41 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 @font-face {
-  font-family: "astratura";
-  src: url(fonts/AstraturaRegular-V4JoV.ttf);
-}
-
-@font-face {
-  font-family: "libre";
-  src: url(fonts/LibertinusSerif-Regular.ttf);
-}
-
-@font-face {
-  font-family: "fixedsys";
-  src: url(fonts/Fixedsys\ Excelsior\ 3.01\ Regular.ttf);
-}
-
-@font-face {
-  font-family: "lucida";
-  src: url(fonts/lucon.ttf);
-}
-
-@font-face {
-  font-family: "consolas";
-  src: url(fonts/consolai.ttf);
-}
-
-@font-face {
-  font-family: "fase";
-  src: url(fonts/FaseBulan-BW633.otf);
-}
-
-@font-face {
-  font-family: "jmh";
-  src: url(fonts/JMH\ Typewriter-Black.otf);
-}
-
-@font-face {
   font-family: "ocean";
   src: url(fonts/Oceanside\ Typewriter.ttf);
 }
@@ -46,38 +11,8 @@
 }
 
 @font-face {
-  font-family: "ave";
-  src: url(fonts/Aveschon.otf);
-}
-
-@font-face {
-  font-family: "china";
-  src: url(fonts/chinese\ rocks\ rg.ttf);
-}
-
-@font-face {
-  font-family: "gas";
-  src: url(fonts/Gastroe-Demo.otf);
-}
-
-@font-face {
-  font-family: "vt";
-  src: url(fonts/VT323-Regular.ttf);
-}
-
-@font-face {
-  font-family: "bun";
-  src: url(fonts/Bungee-Regular.ttf);
-}
-
-@font-face {
   font-family: "cursive";
   src: url(fonts/CassandraPersonalUseRegular-3BjG.ttf);
-}
-
-@font-face {
-  font-family: "Press Start 2P";
-  src: url(fonts/PressStart2P-Regular.ttf);
 }
 
 @font-face {
@@ -234,6 +169,9 @@ body {
   flex-wrap: nowrap;
   display: flex;
   cursor: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 #porty span {
@@ -311,7 +249,7 @@ body {
   transform: translate(-50%, -50%);
 }
 
-@media (max-width: 600px) {
+/*@media (max-width: 600px) {
   .button-container {
     flex-direction: row;
     gap: 1vh;
@@ -331,7 +269,7 @@ body {
     padding: 2vh 8vw;
     font-size: auto;
   }
-}
+}*/
 
 .button-container {
   display: flex;
@@ -935,7 +873,8 @@ dialog {
   }
 
   #quote-text {
-    display: inline-block;
+    display: block;
+    white-space: nowrap;
   }
 
   .drop-in {
@@ -967,3 +906,105 @@ dialog {
       opacity: 0;
     }
   }
+
+@media (max-width: 600px) {
+  #porty {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    top: 10px;
+  }
+  
+  .sentence {
+    font-size: 1.2rem;
+    top: 20%;
+  } 
+
+  #quote-text {
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
+
+  #quote-container {
+    position: relative;
+    height: 1.5em;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 3vh;
+    top: 80%;
+  }
+  
+  .btn, .btn2 {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+  
+  #main-dialog, #skills-dialog, #options {
+    width: 90vw;
+    height: auto;
+    max-height: 80vh;
+  }
+
+
+   .first-impression-dialog {
+    width: 90%;
+    max-width: 600px;
+    padding: 1rem;
+    height: 50%;
+    max-height: 100vh;
+    border-radius: 10px;
+  }
+
+  .first-impression-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image-container {
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    top: 0%;
+  }
+
+  .first-impression-photo {
+    max-width: 20%;
+    height: auto;
+  }
+
+  .paragraph-container {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 0 0.5rem;
+  }
+
+  .paragraph-container ul {
+    padding-left: 1rem;
+    text-align: left;
+  }
+
+  .side-div {
+    font-size: 1.2rem;
+    padding: 0.2rem;
+  }
+
+  .ribbon-container {
+    margin-top: 1rem;
+    bottom: 5%;
+  }
+
+  .ribbon {
+    max-width: 80px;
+    height: auto;
+  }
+
+}
