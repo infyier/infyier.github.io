@@ -164,7 +164,7 @@ body {
   padding: 1rem 1rem;
   border: 2px solid hsl(0, 10%, 82%);
   box-shadow: -10px 10px 0px rgb(193, 189, 189);
-  font-size: 2.7rem;
+  font-size: clamp(1rem, 4vw, 2.5rem);
   background-color: transparent;
   flex-wrap: nowrap;
   display: flex;
@@ -223,7 +223,7 @@ body {
   position: absolute;
   left: 50%;
   top: 26%;
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 4vw, 3rem);
   font-family: ocean;
   transform: translate(-50%, -50%);
   cursor: none;
@@ -345,7 +345,15 @@ dialog {
   width: 500px;
   max-width: 80vw;
   animation: portfolioDialogEnter 0.4s ease forwards;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
 }
+
+#main-dialog[open] {
+  display: flex;
+}
+
 #main-dialog.closing {
   animation: portfolioDialogExit 0.4s ease forwards;
 }
@@ -358,6 +366,8 @@ dialog {
   padding: 8px 12px;
   border-bottom: 1px solid white;
   font-weight: bold;
+  /*overflow: hidden;*/
+  flex-shrink: 0;
   font-size: 1.25rem;
   box-shadow: 0 0 5px white;
 }
@@ -388,12 +398,14 @@ dialog {
   font-size: 1.2rem;
   line-height: 1.5rem;
   color: #eee;
+  flex: 1;
+  overflow: auto;
 }
+
 #content-dialog b {
   color: white;
   text-shadow: 0 0 5px white;
 }
-
 /*#skills-header {
   background-color: #333;
   font-family: libre;
@@ -457,10 +469,27 @@ dialog {
   color: white;
   font-family: "Special Elite", cursive;
   box-shadow: 0 0 10px white, 0 0 20px rgba(255, 255, 255, 0.5);
-  width: 40%;
+  width: clamp(250px, 40vw, 600px);
   height: 20vh;
   animation: portfolioDialogEnter 0.6s ease forwards;
   flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.optionss {
+  font-family: "Special Elite", cursive;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 6px;
+  color: white;
+  /*padding: 8px 14px;
+  font-size: 16px;*/
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px white;
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  padding: clamp(6px, 1vw, 12px);
 }
 
 #options {
@@ -492,7 +521,7 @@ dialog {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
+  gap: clamp(4rem, 4vw, 12rem);
 }
 
 #options.closing {
@@ -515,20 +544,6 @@ dialog {
 #close-options-button:hover {
   transform: scale(1.2);
   color: #00f0ff;
-}
-
-.optionss {
-  font-family: "Special Elite", cursive;
-  background: transparent;
-  border: 2px solid white;
-  border-radius: 6px;
-  color: white;
-  padding: 8px 14px;
-  font-size: 16px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 5px white;
 }
 
 #dottxt:hover {
@@ -562,8 +577,9 @@ dialog {
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
-#text-header, #cert-header{
-  font-weight: bold;;
+#text-header,
+#cert-header {
+  font-weight: bold;
 }
 
 #text-dialog {
@@ -658,10 +674,10 @@ dialog {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   height: 75vh;
   width: 75vh;
-  z-index: 900;
+  /*z-index: 900;*/
   border-radius: 5px;
   cursor: default;
-  flex-direction: column;
+  /*flex-direction: column;*/
   background: linear-gradient(
     165deg,
     #555 0%,
@@ -682,7 +698,7 @@ dialog {
   width: 100%;
   height: 30%;
   display: flex;
-  flex-direction: row;
+  /*flex-direction: row;*/
   /*margin: 0;*/
   /*padding: 5vh;*/
   justify-content: center;
@@ -732,7 +748,8 @@ dialog {
   text-align: center;
   width: 100%;
   height: auto;
-  display: grid;
+  display: flex;
+  flex: 1;
   overflow: hidden;
 }
 
@@ -787,14 +804,20 @@ dialog {
 }
 
 .ribbon-container {
-  position: absolute;
-  bottom: 2%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  margin-top: 1rem; /* space between paragraph and ribbon */
+  bottom: 8%;
 }
+
 .ribbon {
   height: 40px;
   width: 100px;
+  position: absolute;
   cursor: pointer;
 }
+
 .ribbon {
   transition: filter 0.3s ease, transform 0.3s ease;
 }
@@ -857,77 +880,77 @@ dialog {
 }
 
 #quote-container {
-    font-family: 'Courier New', monospace;
-    font-size: 1.85rem;
-    color: white;
-    display: flex;
-    text-shadow: 0 0 10px white, 0 0 20px white;
-    white-space: nowrap;
-    align-items: center;
-    font-weight: bold;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-  }
+  font-family: "Courier New", monospace;
+  font-size: clamp(0.8rem, 4vw, 2rem);
+  color: white;
+  display: flex;
+  text-shadow: 0 0 10px white, 0 0 20px white;
+  white-space: nowrap;
+  align-items: center;
+  font-weight: bold;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
 
-  #quote-text {
-    display: block;
-    white-space: nowrap;
-  }
+#quote-text {
+  display: block;
+  white-space: nowrap;
+}
 
-  .drop-in {
-    animation: dropIn 0.6s ease forwards;
-  }
+.drop-in {
+  animation: dropIn 0.6s ease forwards;
+}
 
-  .drop-out {
-    animation: dropOut 0.6s ease forwards;
-  }
+.drop-out {
+  animation: dropOut 0.6s ease forwards;
+}
 
-  @keyframes dropIn {
-    0% {
-      transform: translateY(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
+@keyframes dropIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
   }
-
-  @keyframes dropOut {
-    0% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(100%);
-      opacity: 0;
-    }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
+}
 
-@media (max-width: 600px) {
+@keyframes dropOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 375px) {
   #porty {
     font-size: 1.5rem;
     padding: 0.5rem;
     top: 10px;
   }
-  
+
   .sentence {
-    font-size: 1.2rem;
+    font-size: 1rem;
     top: 20%;
-  } 
+  }
 
   #quote-text {
-    font-size: 1.2rem;
+    font-size: 0.95rem;
     white-space: nowrap;
   }
 
   #quote-container {
     position: relative;
     height: 1.5em;
-    top: 50%;
+    top: 40%;
     left: 50%;
     display: flex;
     align-items: center;
@@ -939,20 +962,45 @@ dialog {
     gap: 3vh;
     top: 80%;
   }
-  
-  .btn, .btn2 {
-    font-size: 1.2rem;
+
+  .btn,
+  .btn2 {
+    font-size: 1rem;
     padding: 10px 20px;
   }
-  
-  #main-dialog, #skills-dialog, #options {
-    width: 90vw;
-    height: auto;
-    max-height: 80vh;
+
+  #options {
+    height: 20%;
+    width: 70%;
+    /*max-height: 80vh;*/
   }
 
+  #skills-dialog {
+    height: 60%;
+    width: 90%;
+  }
 
-   .first-impression-dialog {
+  #options-header,
+  #options-content {
+    font: 0.4rem;
+    gap: 2rem;
+  }
+
+  #main-dialog {
+    height: auto;
+    width: 90%;
+    font: 0.5rem;
+  }
+
+  #main-dialog #header {
+    font-size: 0.8rem;
+  }
+
+  #content-dialog {
+    font-size: 0.8rem;
+  }
+
+  .first-impression-dialog {
     width: 90%;
     max-width: 600px;
     padding: 1rem;
@@ -972,8 +1020,8 @@ dialog {
     height: auto;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
-    top: 0%;
+    /*margin-bottom: 1rem;*/
+    top: 1%;
   }
 
   .first-impression-photo {
@@ -982,14 +1030,129 @@ dialog {
   }
 
   .paragraph-container {
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     line-height: 1.4;
+    top: 35%;
     padding: 0 0.5rem;
   }
 
-  .paragraph-container ul {
-    padding-left: 1rem;
-    text-align: left;
+  .side-div {
+    font-size: 1.2rem;
+    padding: 0.2rem;
+  }
+
+  .ribbon-container {
+    margin-top: 1rem;
+    bottom: 4%;
+  }
+
+  .ribbon {
+    max-width: 50px;
+    height: 20px;
+  }
+}
+@media (max-width: 425px) {
+  #porty {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    top: 10px;
+  }
+
+  .sentence {
+    font-size: 1rem;
+    top: 20%;
+  }
+
+  #quote-text {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  #quote-container {
+    position: relative;
+    height: 1.5em;
+    top: 40%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 3vh;
+    top: 80%;
+  }
+
+  .btn,
+  .btn2 {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  #options {
+    height: 20%;
+    width: 90%;
+    /*max-height: 80vh;*/
+  }
+  #skills-dialog {
+    height: 60%;
+    width: 90%;
+  }
+
+  #options-content {
+    font: 0.5rem;
+    gap: 1rem;
+  }
+
+  #main-dialog {
+    height: auto;
+    width: 90%;
+    font: 0.5rem;
+  }
+
+  #main-dialog #header {
+    font-size: 0.8rem;
+  }
+
+  #content-dialog {
+    font-size: 0.8rem;
+  }
+
+  .first-impression-dialog {
+    width: 90%;
+    max-width: 600px;
+    padding: 1rem;
+    height: 70%;
+    max-height: 100vh;
+    border-radius: 10px;
+  }
+
+  .first-impression-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image-container {
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    /*margin-bottom: 1rem;*/
+    top: 1%;
+  }
+
+  .first-impression-photo {
+    max-width: 20%;
+    height: auto;
+  }
+
+  .paragraph-container {
+    font-size: 0.5rem;
+    line-height: 1.4;
+    top: 35%;
+    padding: 0 0.5rem;
   }
 
   .side-div {
@@ -1003,8 +1166,245 @@ dialog {
   }
 
   .ribbon {
-    max-width: 80px;
+    max-width: 40px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 768px) and (max-width: 1024px){
+  #porty {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    top: 10px;
+  }
+
+  .sentence {
+    font-size: 1rem;
+    top: 20%;
+  }
+
+  #quote-text {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  #quote-container {
+    position: relative;
+    height: 1.5em;
+    top: 40%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 3vh;
+    top: 80%;
+  }
+
+  .btn,
+  .btn2 {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  #options {
+    height: 20%;
+    width: 70%;
+    /*max-height: 80vh;*/
+  }
+  #skills-dialog {
+    height: 60%;
+    width: 90%;
+  }
+  #options-header #options-content {
+    font: 0.5rem;
+    gap: 2rem;
+  }
+
+  #main-dialog {
+    height: auto;
+    width: 90%;
+    font: 0.5rem;
+  }
+
+  #main-dialog #header {
+    font-size: 0.8rem;
+  }
+
+  #content-dialog {
+    font-size: 0.8rem;
+  }
+
+  .first-impression-dialog {
+    width: 70%;
+    max-width: 600px;
+    padding: 1rem;
+    height: 50%;
+    max-height: 100vh;
+    border-radius: 10px;
+  }
+
+  .first-impression-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image-container {
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    /*margin-bottom: 1rem;*/
+    top: 1%;
+  }
+
+  .first-impression-photo {
+    max-width: 20%;
     height: auto;
   }
 
+  .paragraph-container {
+    font-size: 0.7rem;
+    line-height: 1.4;
+    top: 40%;
+    padding: 0 0.5rem;
+  }
+
+  .side-div {
+    font-size: 1.2rem;
+    padding: 0.2rem;
+  }
+
+  .ribbon-container {
+    margin-top: 1rem;
+    bottom: 5%;
+  }
+
+  .ribbon {
+    max-width: 50px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  #porty {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    top: 10px;
+  }
+
+  .sentence {
+    font-size: 1rem;
+    top: 20%;
+  }
+
+  #quote-text {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  #quote-container {
+    position: relative;
+    height: 1.5em;
+    top: 40%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 3vh;
+    top: 80%;
+  }
+
+  .btn,
+  .btn2 {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  #options {
+    height: 20%;
+    width: 70%;
+    /*max-height: 80vh;*/
+  }
+  #skills-dialog {
+    height: 60%;
+    width: 90%;
+  }
+  #options-header #options-content {
+    font: 0.5rem;
+    gap: 2rem;
+  }
+
+  #main-dialog {
+    height: auto;
+    width: 90%;
+    font: 0.5rem;
+  }
+
+  #main-dialog #header {
+    font-size: 0.8rem;
+  }
+
+  #content-dialog {
+    font-size: 0.8rem;
+  }
+
+  .first-impression-dialog {
+    width: 90%;
+    max-width: 600px;
+    padding: 1rem;
+    height: 50%;
+    max-height: 100vh;
+    border-radius: 10px;
+  }
+
+  .first-impression-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .image-container {
+    display: flex;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    /*margin-bottom: 1rem;*/
+    top: 1%;
+  }
+
+  .first-impression-photo {
+    max-width: 20%;
+    height: auto;
+  }
+
+  .paragraph-container {
+    font-size: 0.7rem;
+    line-height: 1.4;
+    top: 35%;
+    padding: 0 0.5rem;
+  }
+
+  .side-div {
+    font-size: 1.2rem;
+    padding: 0.2rem;
+  }
+
+  .ribbon-container {
+    margin-top: 1rem;
+    bottom: 5%;
+  }
+
+  .ribbon {
+    max-width: 50px;
+    height: 20px;
+  }
 }
